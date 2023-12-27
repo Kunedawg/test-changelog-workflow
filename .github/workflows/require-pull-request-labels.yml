@@ -13,14 +13,37 @@ jobs:
         with:
           mode: exactly
           count: 1
-          labels: "scope: core, scope: api, scope: bot, scope: db, scope: frontend"
+          add_comment: true
+          labels: >
+            scope: core,
+            scope: api,
+            scope: bot,
+            scope: db,
+            scope: frontend
       - uses: mheap/github-action-required-labels@v5
         with:
           mode: exactly
           count: 1
-          labels: "change: feature-new, change: feature-update, change: feature-deprecate, change: feature-remove, change: bug-fix, change: security, change: performance, change: documentation, change: refactor, change: architecture, change: ci/cd, change: other"
+          add_comment: true
+          labels: >
+            change: feature-new,
+            change: feature-update,
+            change: feature-deprecate,
+            change: feature-remove,
+            change: bug-fix,
+            change: security,
+            change: performance,
+            change: documentation,
+            change: refactor,
+            change: architecture,
+            change: ci/cd,
+            change: other
       - uses: mheap/github-action-required-labels@v5
         with:
           mode: exactly
           count: 1
-          labels: "significance: essential, significance: notable, significance: trivial"
+          add_comment: true
+          labels: >
+            significance: essential,
+            significance: notable,
+            significance: trivial
