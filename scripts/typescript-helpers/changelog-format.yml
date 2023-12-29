@@ -1,0 +1,38 @@
+categories:
+  - title: "New Features"
+    labels:
+      - "change: feature-new"
+  - title: "Updated"
+    labels:
+      - "change: feature-update"
+  - title: "Deprecated"
+    labels:
+      - "change: feature-deprecate"
+  - title: "Removed"
+    labels:
+      - "change: feature-remove"
+  - title: "Fixed"
+    labels:
+      - "change: bug-fix"
+  - title: "Security"
+    labels:
+      - "change: security"
+  - title: "Performance Improvements"
+    labels:
+      - "change: performance"
+  - title: "Documentation"
+    labels:
+      - "change: documentation"
+  - title: "Refactor"
+    labels:
+      - "change: refactor"
+  - title: "Architecture"
+    labels:
+      - "change: architecture"
+  - title: "CI/CD"
+    labels:
+      - "change: ci/cd"
+  - title: "Other"
+    labels:
+      - "change: other"
+changeTemplate: "- $TITLE [@$AUTHOR_NAME]($AUTHOR_URL) ([#$PR_NUMBER]($PR_URL))"
