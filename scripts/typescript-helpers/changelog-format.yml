@@ -36,3 +36,25 @@ categories:
     labels:
       - "change: other"
 changeTemplate: "- $TITLE [@$AUTHOR_NAME]($AUTHOR_URL) ([#$PR_NUMBER]($PR_URL))"
+versionResolver:
+  major:
+    labels:
+      - "BREAKING MAJOR CHANGE"
+  minor:
+    labels:
+      - "change: feature-new"
+      - "change: feature-update"
+      - "change: feature-deprecate"
+      - "change: feature-remove"
+  patch:
+    labels:
+      - "change: bug-fix"
+      - "change: security"
+      - "change: performance"
+  other:
+    labels:
+      - "change: documentation"
+      - "change: refactor"
+      - "change: architecture"
+      - "change: ci/cd"
+      - "change: other"
