@@ -29,11 +29,15 @@ export function determineNextVersionFromPrLabels(
   } else if (isPatch) {
     patch++;
   } else if (isOther) {
-    console.error("OTHER detected, still patching");
     patch++;
+    console.error(
+      "WARNING: Only 'Other' type PR labels were found. Patch number was incremented. Double check to make sure this code is worth releasing."
+    );
   } else {
     patch++;
-    console.error("WARNING: Not even patch change was detected, but still bumped patch number.");
+    console.error(
+      "WARNING: No valid PR labels were found. Patch number was incremented. Double check to make sure this code is worth releasing."
+    );
   }
 
   return `${major}.${minor}.${patch}`;

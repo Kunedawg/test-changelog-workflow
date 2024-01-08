@@ -54,8 +54,6 @@ async function main() {
     const changelogFormat = readYamlFile("changelog-format.yml") as ChangelogFormat;
     const newVersion = determineNextVersionFromPrLabels(mergedPullRequests, currentVersion, changelogFormat);
     const newTag = tagStringBuilder(newVersion);
-    // console.error(newTag);
-    // TODO pass newTag and newVersion to createChangelog
     const changelog = buildChangelogString(mergedPullRequests, changelogFormat, newTag);
     console.log(changelog);
   } catch (error) {
