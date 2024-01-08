@@ -1,0 +1,1 @@
+sed -i '.bak' "$(( $(grep -n '^##' CHANGELOG.md | head -n 1 | cut -d: -f1) - 1 ))r CHANGELOG_APPEND.md" CHANGELOG.md

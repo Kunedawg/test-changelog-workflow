@@ -1,0 +1,29 @@
+{
+  "scope": {
+    "api": {
+      "changelogPath": "/api/CHANGELOG.md",
+      "versionPath": "/api/VERSION.txt",
+      "changelogFormatPath": "/scripts/typescript-helpers/changelog-format.yml"
+    },
+    "bot": {
+      "changelogPath": "/bot/CHANGELOG.md",
+      "versionPath": "/bot/VERSION.txt",
+      "changelogFormatPath": "/scripts/typescript-helpers/changelog-format.yml"
+    },
+    "core": {
+      "changelogPath": "/CORE_CHANGELOG.md",
+      "versionPath": "/CORE_VERSION.txt",
+      "changelogFormatPath": "/scripts/typescript-helpers/changelog-format.yml"
+    },
+    "db": {
+      "changelogPath": "/db/CHANGELOG.md",
+      "versionPath": "/db/VERSION.txt",
+      "changelogFormatPath": "/scripts/typescript-helpers/changelog-format.yml"
+    },
+    "frontend": {
+      "changelogPath": "/frontend/CHANGELOG.md",
+      "versionPath": "/frontend/VERSION.txt",
+      "changelogFormatPath": "/scripts/typescript-helpers/changelog-format.yml"
+    }
+  }
+}
