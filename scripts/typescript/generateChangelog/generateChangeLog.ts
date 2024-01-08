@@ -1,39 +1,16 @@
 import { Octokit } from "@octokit/rest";
 import * as dotenv from "dotenv";
-import { getCommitDateOfTag } from "./getCommitDateOfTag";
-import { PullRequest, ChangelogFormat } from "./types";
-import { fetchAllPullRequests } from "./fetchAllPullRequests";
-import { isPullRequestMerged } from "./isPullRequestMerged";
-import { findHighestVersionTagWithSubstring } from "./findHighestVersionTagWithSubstring";
-import { determineNextVersionFromPrLabels } from "./determineNextVersionFromPrLabels";
-import { createChangelog } from "./createChangelog";
-import { readYamlFile } from "./readYamlFile";
-import { getScopeArg } from "./getScopeArg";
+import { getCommitDateOfTag } from "../helpers/getCommitDateOfTag";
+import { PullRequest, ChangelogFormat } from "../helpers/types";
+import { fetchAllPullRequests } from "../helpers/fetchAllPullRequests";
+import { isPullRequestMerged } from "../helpers/isPullRequestMerged";
+import { findHighestVersionTagWithSubstring } from "../helpers/findHighestVersionTagWithSubstring";
+import { determineNextVersionFromPrLabels } from "../helpers/determineNextVersionFromPrLabels";
+import { buildChangelogString } from "../helpers/buildChangelogString";
+import { readYamlFile } from "../helpers/readYamlFile";
+import { getScopeArg } from "../helpers/getScopeArg";
+import { getSemanticVersionFromTag } from "../helpers/getSemanticVersionFromTag";
 dotenv.config();
-
-function getSemanticVersionFromTag(tag: string): [string | null, (newVersion: string) => string] {
-  // Search for the pattern in the tag string (match on number.number.number)
-  const regex = /\b\d+\.\d+\.\d+\b/;
-  const match = tag.match(regex);
-
-  if (match) {
-    const version = match[0];
-    const index = match.index || 0;
-
-    // Split the tag string around the matched pattern
-    const beforeMatch = tag.substring(0, index);
-    const afterMatch = tag.substring(index + version.length);
-
-    // Function to rebuild the original string with a new number
-    const rebuildTagString = (newVersion: string): string => {
-      return beforeMatch + newVersion + afterMatch;
-    };
-
-    return [version, rebuildTagString];
-  } else {
-    return [null, (newVersion: string) => tag];
-  }
-}
 
 async function main() {
   try {
@@ -79,7 +56,7 @@ async function main() {
     const newTag = tagStringBuilder(newVersion);
     // console.error(newTag);
     // TODO pass newTag and newVersion to createChangelog
-    const changelog = createChangelog(mergedPullRequests, changelogFormat, newTag);
+    const changelog = buildChangelogString(mergedPullRequests, changelogFormat, newTag);
     console.log(changelog);
   } catch (error) {
     console.error("Error generating changelog:", error);

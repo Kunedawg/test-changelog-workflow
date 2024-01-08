@@ -1,6 +1,6 @@
 import { PullRequest, ChangelogFormat } from "./types";
 
-export function createChangelog(prs: PullRequest[], changelogFormat: ChangelogFormat, tag: string) {
+export function buildChangelogString(prs: PullRequest[], changelogFormat: ChangelogFormat, tag: string) {
   let changelog = "";
 
   changelog += `## [${tag}] - ${new Date().toISOString().split("T")[0]}\n`;
