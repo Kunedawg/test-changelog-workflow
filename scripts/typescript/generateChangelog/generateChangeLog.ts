@@ -14,7 +14,10 @@ dotenv.config();
 
 async function main() {
   try {
+    // get token
     const token = process.env.GITHUB_TOKEN;
+    if (!token) throw new Error("Please provide a GITHUB_TOKEN");
+
     const owner = "Kunedawg";
     const repo = "test-changelog-workflow";
     const octokit = new Octokit({ auth: token });
