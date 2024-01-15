@@ -1,0 +1,5 @@
+ts-node generateChangeLog.ts core | cat - ../../../CORE_CHANGELOG.md  > temp && mv temp ../../../CORE_CHANGELOG.md
+
+echo -e "task goes here\n$(cat todo.txt)" > todo.txt
+
+ts-node generateChangeLog.ts core | ts-node ../appendToFile/appendToFile.ts ../../../CORE_CHANGELOG.md
